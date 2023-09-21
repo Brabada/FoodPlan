@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CustomUserCreationForm
 
 
 def index(request):

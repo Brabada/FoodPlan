@@ -245,3 +245,8 @@ body {
         background-color: #91B93E;
     }
 }
+
+.consultation__form_error {
+    max-width: 600px;
+    margin-bottom: 15px;
+}
