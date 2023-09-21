@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,23 @@
                             Больше не нужно думать, что готовить.</h4>
                         <div class="d-block mt-3">
                             <button class="btn shadow-none btn-outline-success foodplan_green foodplan__border_green">Хочу попробовать</button>
+                        </div>
+                        <div class="d-block mt-9">
+                            <form action="#" action="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" id="submit">Register</button>
+<!--                                {{ form.email }}-->
+<!--                                {{ form.password1 }}-->
+<!--                                {{ form.password2 }}-->
+
+<!--                                {% if form.errors %}-->
+<!--                                    {% for field in form %}-->
+<!--                                        {{ field.errors }}-->
+<!--                                    {% endfor %}-->
+<!--                                {% endif %}-->
+
+                            </form>
                         </div>
                     </div>
                 </div>
