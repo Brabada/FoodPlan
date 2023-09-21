@@ -28,3 +28,6 @@ def register(request):
 
 def contacts(request):
     return render(request, 'contacts.html')
+
+def authenticate(request):
+    return render(request, 'auth/auth.html')

@@ -37,11 +37,15 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
+def user_directory_path(instance, filename):
+    return 'user_{0}/{1}'.format(instance.id, filename)
+
+
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField('E-mail', unique=True)
     name = models.CharField('Имя', max_length=250, blank=True)
-    avatar = models.ImageField('Аватар', blank=True)
+    avatar = models.ImageField('Аватар', blank=True, upload_to=user_directory_path)
 
     objects = CustomUserManager()
 
