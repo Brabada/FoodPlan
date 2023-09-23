@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
 from .forms import CustomUserCreationForm
+from .models import Dish
 
 
 def index(request):
@@ -20,10 +21,13 @@ def lk(request):
 
 def dish(request, dish_id=None):
     if dish_id is None:
-        dish = {}
+        dish = Dish.objects.filter(is_free=True).order_by('?').first()
     else:
-        dish = {}
-    return render(request, 'dish.html', context=dish)
+        dish = get_object_or_404(Dish, pk=dish_id)
+    context = {
+        'dish': dish,
+    }
+    return render(request, 'dish.html', context=context)
 
 
 def register(request, redirect_to_order='False'):
