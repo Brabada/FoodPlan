@@ -151,7 +151,7 @@ def register(request, redirect_to_order='False'):
 def auth(request):
 
     context = {
-        'UserNotFoundError': False,
+        'user_not_found_error': False,
     }
     if request.user.is_authenticated:
         return redirect('index')
@@ -162,7 +162,7 @@ def auth(request):
             return redirect('index')
         else:
             form = CustomAuthentication()
-            context['UserNotFoundError'] = True
+            context['user_not_found_error'] = True
     else:
         form = CustomAuthentication()
 
