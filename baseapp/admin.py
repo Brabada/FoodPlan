@@ -42,6 +42,10 @@ class DishAdmin(admin.ModelAdmin):
         DishIngredientItemInline
     ]
 
+    readonly_fields = [
+        'get_image_preview',
+    ]
+
     def get_image_preview(self, obj):
         if not obj.image:
             return 'выберите картинку'
